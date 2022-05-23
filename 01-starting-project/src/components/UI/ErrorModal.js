@@ -1,25 +1,22 @@
 import React from "react";
-import Button from "./Button";
+
 import Card from "./Card";
-import style from "./ErrorModal.module.css";
+import Button from "./Button";
+import classes from "./ErrorModal.module.css";
 
 const ErrorModal = (props) => {
-    const closeModal = () => {
-        props.onModalClose();
-    };
-
     return (
         <div>
-            <div className={style.backdrop} onClick={closeModal}></div>
-            <Card className={style.modal}>
-                <header className={style.header}>
+            <div className={classes.backdrop} onClick={props.onConfirm} />
+            <Card className={classes.modal}>
+                <header className={classes.header}>
                     <h2>{props.title}</h2>
                 </header>
-                <div className={style.content}>
+                <div className={classes.content}>
                     <p>{props.message}</p>
                 </div>
-                <footer className={style.actions}>
-                    <Button onClick={closeModal}>Okay</Button>
+                <footer className={classes.actions}>
+                    <Button onClick={props.onConfirm}>Okay</Button>
                 </footer>
             </Card>
         </div>
